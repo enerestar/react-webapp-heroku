@@ -1,4 +1,17 @@
 .hello {
     color: red;
-    background: url('../images/search.png');
+    /* background: url('../images/search.png'); */
 }
+
+.top .title {
+    font-family: 'Styrene400';
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 14px;
+    text-align: center;
+    margin: auto;
+  }
+  

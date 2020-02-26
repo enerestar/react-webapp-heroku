@@ -10,11 +10,12 @@ function component() {
 
     element.innerHTML = [
         'Hello webpack',
-        '5 cubed equals' + cube(5)
+        '5 cubed equals' + cube(5),
     ].join('\n\n');
 
     // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     element.classList.add('hello');
+    element.classList.add('title')
 
     const button = document.createElement('button');
     button.innerHTML = 'Search me ';
