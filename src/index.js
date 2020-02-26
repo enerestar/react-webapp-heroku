@@ -17,7 +17,7 @@ function component() {
     element.classList.add('hello');
 
     const button = document.createElement('button');
-    button.innerHTML = 'Click me and check the console';
+    button.innerHTML = 'Search me ';
     button.onclick=printMe;
 
     const searchIcon = new Image();
