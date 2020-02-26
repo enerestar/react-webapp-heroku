@@ -4,6 +4,11 @@ import Icon from './images/search.png';
 import printMe from './javascript/print.js'
 import { cube } from './javascript/math.js';
 
+console.log("helloooo " + process.env.NODE_ENV)
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode');
+}
+
 function component() {
     // const element = document.createElement('div');
     const element = document.createElement('pre');
