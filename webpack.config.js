@@ -1,9 +1,12 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        app: './src/index.js',
+        print: './src/javascript/print.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
@@ -25,6 +28,12 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [
                     'file-loader',
+                ],
+            },
+            {
+                test: /\.(csv|tsv)$/,
+                use: [
+                    'csv-loader',
                 ],
             },
         ],
