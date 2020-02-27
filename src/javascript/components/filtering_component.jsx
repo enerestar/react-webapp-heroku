@@ -7,11 +7,14 @@ class FilteringComponent extends React.Component {
             initialItems: [],
             items: []
         }
+        this.filterList = this.filterList.bind(this);
     }
 
     filterList(e) {
+        console.log("What is this? " + this)
         let items = this.state.initialItems;
         items = items.filter((item) => {
+            console.log("What is item? " + item)
             return item.toLowerCase().search(event.target.value.toLowerCase())
         });
         this.setState({items: items});
