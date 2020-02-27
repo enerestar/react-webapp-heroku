@@ -5,6 +5,7 @@ import printMe from './javascript/print.js'
 import { cube } from './javascript/math.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import LikeButton from './like_button.js'
 
 console.log("helloooo " + process.env.NODE_ENV)
 if (process.env.NODE_ENV !== 'production') {
@@ -12,7 +13,11 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const Index = () => {
-    return <div>Hello React</div>
+    return (
+        <div>Hello React
+        <LikeButton></LikeButton>
+        </div>
+    );
 }
 
 ReactDOM.render(<Index/>, document.getElementById('index'));
