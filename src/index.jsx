@@ -2,8 +2,8 @@ import './css/style.css';
 import Icon from './images/search.png';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LikeButton from './javascript/components/like_button'
-import FilteringComponent from './javascript/components/filtering_component'
+import LikeButton from './js/components/like_button'
+import FilteringComponent from './js/components/filtering_component'
 
 console.log("helloooo " + process.env.NODE_ENV)
 if (process.env.NODE_ENV !== 'production') {

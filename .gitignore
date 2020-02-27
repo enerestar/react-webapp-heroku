@@ -479,4 +479,5 @@ temp/
 # Ignore all local history of files
 .history
 
+src/keys/
 # End of https://www.gitignore.io/api/visualstudiocode
