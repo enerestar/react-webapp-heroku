@@ -9,7 +9,7 @@ module.exports = {
     },
     entry: {
         app: './src/index.jsx',
-        print: './src/javascript/print.js'
+        // print: './src/javascript/print.js'
     },
     devServer: {
         contentBase: './dist',
@@ -27,10 +27,13 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         // publicPath: '/',
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
     module: {
         rules: [
             {
-                test: /\.js|jsx?$/, 
+                test: /\.jsx?$/, 
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",

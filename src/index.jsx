@@ -1,20 +1,23 @@
-// import _ from 'lodash';
 import './css/style.css';
 import Icon from './images/search.png';
-import printMe from './javascript/print.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LikeButton from './like_button.js'
+import LikeButton from './javascript/components/like_button'
+import FilteringComponent from './javascript/components/filtering_component'
 
 console.log("helloooo " + process.env.NODE_ENV)
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode');
 }
 
+const countries = [
+    "Singapore", "China", "Japan", "USA"
+]
 const Index = () => {
     return (
         <div>Hello React
         <LikeButton></LikeButton>
+        <FilteringComponent content={countries}></FilteringComponent>
         </div>
     );
 }
@@ -49,9 +52,9 @@ ReactDOM.render(<Index/>, document.getElementById('index'));
 
 // document.body.appendChild(component());
 
-if (module.hot) {
-    module.hot.accept('./javascript/print.js', function() {
-        console.log('Accepting the updated module');
-    })
-}
+// if (module.hot) {
+//     module.hot.accept('./javascript/print.js', function() {
+//         console.log('Accepting the updated module');
+//     })
+// }
 
