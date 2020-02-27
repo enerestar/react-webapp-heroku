@@ -2,7 +2,6 @@
 import './css/style.css';
 import Icon from './images/search.png';
 import printMe from './javascript/print.js'
-import { cube } from './javascript/math.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import LikeButton from './like_button.js'
