@@ -4,38 +4,49 @@ class FilteringComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            initialItems: [],
-            items: []
+            options: [],
+            remaining: [],
+            selected: [],
         }
         this.filterList = this.filterList.bind(this);
     }
 
-    filterList(e) {
-        console.log("What is this? " + this)
-        let items = this.state.initialItems;
-        items = items.filter((item) => {
-            console.log("What is item? " + item)
-            return item.toLowerCase().search(event.target.value.toLowerCase())
-        });
-        this.setState({items: items});
+    filterList() {
+        const remaining = [];
+        const selected = [];
+        const options = this.state.options;
+
+        for (const option of options) {
+            let inputSearch = event.target.value.toLowerCase();
+            let input = option.toLowerCase().search(inputSearch);
+            if (input === -1) {
+                remaining.push(option)
+            } else {
+                selected.push(option)
+            } 
+        }
+        this.setState({ remaining, selected })
     }
 
     componentDidMount() {
         this.setState({
-            initialItems: this.props.content,
-            items: this.props.content
+            options: this.props.content,
+            remaining: this.props.content
         })
     }
 
     render() {
         return (
           <div>
+            <div>Rem: {JSON.stringify(this.state.remaining)}</div>
+            <div>Sel: {this.state.selected}</div>
+            <div>Opt: {JSON.stringify(this.state.options)}</div>
             <form>
                   <input type="text" placeholder="Search" onChange={this.filterList}/>
             </form>
             <div>
               {
-                  this.state.items.map(function(item) {
+                  this.state.remaining.map(function(item) {
                       return <div key={item}>{item}</div>
                   })
               }
