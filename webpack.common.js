@@ -8,7 +8,7 @@ module.exports = {
         usedExports:true,
     },
     entry: {
-        app: './src/index.js',
+        app: './src/index.jsx',
         print: './src/javascript/print.js'
     },
     devServer: {
@@ -18,7 +18,8 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Production',
+            template: "./src/index.html",
+            filename: "./index.html"
         }),
     ],
     output: {
@@ -29,7 +30,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.m?js$$/, 
+                test: /\.js|jsx?$/, 
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",

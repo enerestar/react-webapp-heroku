@@ -4,7 +4,7 @@ import Icon from './images/search.png';
 import printMe from './javascript/print.js'
 import { cube } from './javascript/math.js';
 import React from 'react';
-import ReactDowm from 'react-dom';
+import ReactDOM from 'react-dom';
 
 console.log("helloooo " + process.env.NODE_ENV)
 if (process.env.NODE_ENV !== 'production') {
