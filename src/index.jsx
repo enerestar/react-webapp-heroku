@@ -2,28 +2,25 @@ import './css/style.css';
 import Icon from './images/search.png';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LikeButton from './js/components/like_button'
-import Search from './js/components/search'
+import Search from './js/components/search';
+import { colors, fonts, cards } from './js/components/style';
 
-console.log("helloooo " + process.env.NODE_ENV)
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode');
 }
 
-const Index = () => {
+const MyHeader = (props) => {
+    return (<div style={{ ...fonts.header, color: colors.primary, ...cards.body}}>hey
+    <div style={{color: "#834DB7"}}>cinema</div></div>)
+}
+
+const App = () => {
     return (
-        <div>Hello React
-        <LikeButton></LikeButton>
-        <Search></Search>
-        </div>
+    <div>
+    <MyHeader></MyHeader>
+    <Search></Search>
+    </div>
     );
 }
 
-ReactDOM.render(<Index/>, document.getElementById('index'));
-
-// if (module.hot) {
-//     module.hot.accept('./javascript/print.js', function() {
-//         console.log('Accepting the updated module');
-//     })
-// }
-
+ReactDOM.render(<App/>, document.getElementById('app'));
