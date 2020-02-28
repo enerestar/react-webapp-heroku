@@ -10,8 +10,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const MyHeader = (props) => {
-    return (<div style={{ ...fonts.header, color: colors.primary, ...header.body}}>hey
-    <div style={{color: colors.secondary}}>cinema</div></div>)
+    return (<div onClick={(e) => {
+        window.location.href = '/';
+    }}><div style={{ ...fonts.header, color: colors.primary, ...header.body}}>hey
+    <div style={{color: colors.secondary}}>cinema</div></div></div>)
 }
 
 const App = () => {

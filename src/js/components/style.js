@@ -51,7 +51,7 @@ export const cards = {
     body: {
         marginTop: "50px",
         padding: "6px",
-        width: "80%",
+        width: "60%",
         height: "200px",
         boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
         borderRadius: "5px",

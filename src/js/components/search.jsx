@@ -1,6 +1,8 @@
 import React from 'react';
 import api from '../../keys/api.json';
 import { colors, fonts, searchbar } from './style'
+import Swal from 'sweetalert2'
+
 // search by title ?t=nameofmovie
 // search by ?i=idofmovie?type
 class Search extends React.Component {
@@ -27,6 +29,12 @@ class Search extends React.Component {
         })
         .catch((error) => {
             console.log("error: "+ error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: '<a href>Why do I have this issue?</a>'
+              })
         });
     }
 
