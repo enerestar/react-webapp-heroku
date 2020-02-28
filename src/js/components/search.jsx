@@ -1,6 +1,6 @@
 import React from 'react';
 import api from '../../keys/api.json';
-
+import { colors, fonts, searchbar } from './style'
 // search by title ?t=nameofmovie
 // search by ?i=idofmovie?type
 class Search extends React.Component {
@@ -22,7 +22,6 @@ class Search extends React.Component {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
             this.setState({ selected : data })
             return data;
         })
@@ -39,45 +38,29 @@ class Search extends React.Component {
     }
 
     async filterList() {
-        const remaining = [];
-        const selected = [];
         let inputSearch = this.state.input;
-        console.log('search ' + inputSearch )
-        console.log("hellllooooo")
-        let data = await this.getInfo(inputSearch);
-        console.log(data);
-        // selected.push(data);
+        console.log('Searched: ' + inputSearch )
+        await this.getInfo(inputSearch);
+        console.log("3333333");
         console.log(this.state.selected);
     }
-
-    // componentDidMount() {
-    //     this.setState({
-    //         options: this.props.content,
-    //         remaining: this.props.content
-    //     })
-    // }
 
     render() {
         return (
           <div>
-            <div>Sel: {this.state.selected}</div>
-            <form>
-                <input type="text" placeholder="movie title" onChange={(e) => {
+            <div>
+                <input style={{...searchbar.body, ...fonts.italics}} type="text" placeholder="Label" onChange={(e) => {
                     console.log(e)
                     this.setState({input: e.target.value.toLowerCase()})
-                }}/>
-                <button onClick={(e) => {
+                }}></input>
+                <input type="image" src="../../images/search.png" onClick={(e) => {
                     e.preventDefault();
                     this.filterList();
-                    }}>Search</button>
-            </form>
-            {/* <div>
-            {
-                this.state.remaining.map(function(item) {
-                    return <div key={item}>{item}</div>
-                })
-            }
-            </div> */}
+                    }}>
+                </input>
+            </div>
+            <div></div>
+            {/* <div>Title: {this.state.selected}</div> */}
           </div>
         );
       }
