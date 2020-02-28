@@ -24,16 +24,18 @@ class Search extends React.Component {
             return response.json();
         })
         .then((data) => {
-            this.setState({ selected : data })
-            return data;
+            if(data.Response != "False") {
+                this.setState({ selected : data })
+                return data;
+            } 
+            throw new Error(data.Error)
         })
         .catch((error) => {
-            console.log("error: "+ error);
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Something went wrong!',
-                footer: '<a href>Why do I have this issue?</a>'
+                footer: error
               })
         });
     }
@@ -41,7 +43,6 @@ class Search extends React.Component {
     getInfo(inputSearch) {
         const key = JSON.stringify(api.KEY).split('\"').join("");
         const API_URL = "http://www.omdbapi.com/?t="+ inputSearch + "&apikey=" + key;
-        console.log(API_URL)
         return this.fetch(API_URL);
     }
 
