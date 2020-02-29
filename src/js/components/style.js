@@ -2,19 +2,20 @@ export const colors = {
     primary: "#7FAAE4",
     secondary: "#834DB7",
     tertiary: "#34283F",
-    lightGrey: '#979797'
+    lightGrey: '#979797',
+    label: '#30293A'
 }
 
 export const fonts = {
     header: {
         fontSize: "18px",
-        fontStyle: ["Helvetica Neue", "Arial", "sans-serif"],
+        fontFamily: ["Helvetica Neue", "Arial", "sans-serif"],
         fontWeight: "bold"
     },
     body: {
         fontSize: "16px",
-        fontStyle: ["Helvetica Neue", "Arial", "sans-serif"],
-        fontWeight: "regular"
+        fontFamily: ["Helvetica Neue", "Arial", "sans-serif"],
+        fontStyle: "regular"
     }
 }
 
@@ -24,7 +25,7 @@ export const header = {
         backgroundColor: "#f0f0f0f",
         width: "100%",
         height: "auto",
-        padding: "16px",
+        padding: 8,
         boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
     }
 }

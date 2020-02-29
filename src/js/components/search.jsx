@@ -70,7 +70,7 @@ class Search extends React.Component {
         return (
           <div>
             <div style={{display: "flex", alignItems: "center"}}>
-                <input style={{...searchbar.body, fontStyle: "italic"}} type="text" placeholder="Label" onChange={(e) => {
+                <input style={{...searchbar.body, fontStyle: "italic", color:colors.label}} type="text" placeholder="Label" onChange={(e) => {
                     console.log(e)
                     this.setState({input: e.target.value.toLowerCase()})
                 }}></input>
