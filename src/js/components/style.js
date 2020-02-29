@@ -44,12 +44,12 @@ export const searchbar = {
 export const cards = {
     body: {
         marginTop: "50px",
-        padding: "6px",
         width: "60%",
-        height: "200px",
+        height: 200,
         boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
         borderRadius: "5px",
         display: "flex", 
-        alignItems: "center"
+        alignItems: "stretch",
+        overflow: "hidden"
     }
 }

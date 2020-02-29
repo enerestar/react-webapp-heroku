@@ -85,11 +85,11 @@ class Search extends React.Component {
             <div style={{}}>
                 <div style={{...cards.body}}>
                 <img src={this.state.selected.Poster} style={{height: "200px"}}></img>
-                <div style={{height: "200px"}}>
+                <div style={{padding: 10, display: "flex", flexDirection: "column" }}>
                     {/* <div style={{height: "200px", backgroundColor: "#F0F0F0", transform: "rotate(20deg)"}}></div> */}
-                    <div style={{...fonts.header, color:colors.primary, marginLeft: 30 }}>{this.state.selected.Title}</div>
-                    <div style={{...fonts.body, color:colors.lightGrey, marginTop:2, marginLeft: 30 }}>{this.state.selected.Year} </div>
-                    <div style={{...fonts.body, color:colors.secondary, marginTop:40, marginLeft: 30, height: "150px", overflowY: "hidden" }}>
+                    <div style={{...fonts.header, color:colors.primary, marginLeft: 30, flex: "0 0 auto"}}>{this.state.selected.Title}</div>
+                    <div style={{...fonts.body, color:colors.lightGrey, marginTop:2, marginLeft: 30, flex: "0 0 auto"}}>{this.state.selected.Year} </div>
+                    <div style={{...fonts.body, color:colors.secondary, overflowY: "scroll", marginTop:30, marginLeft: 30, flex: "1 0 0"}}>
                         <div>{this.state.selected.Genre}</div>
                         <div> &nbsp;</div>
                         <div>{this.state.selected.Actors}</div>
