@@ -2,9 +2,7 @@
   "name": "reactwebapp",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "13.8.0"
-  }  "main": "index.js",
+  "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack --watch",
