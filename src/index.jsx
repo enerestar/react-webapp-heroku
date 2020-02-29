@@ -1,8 +1,6 @@
-import './css/style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Search from './js/components/search';
-import Result from './js/components/result';
 import { colors, fonts, header } from './js/components/style';
 
 const MyHeader = (props) => {
@@ -17,7 +15,6 @@ const App = () => {
     <div>
     <MyHeader></MyHeader>
     <Search></Search>
-    <Result></Result>
     </div>
     );
 }

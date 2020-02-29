@@ -2,7 +2,6 @@ import React from 'react';
 import api from '../../keys/api.json';
 import { colors, fonts, searchbar, cards } from './style'
 import Swal from 'sweetalert2'
-import Result from './result.jsx';
 
 // search by title ?t=nameofmovie
 // search by ?i=idofmovie?type
@@ -77,7 +76,6 @@ class Search extends React.Component {
                 <input style={{marginTop: 4, marginLeft: -40, transform: "scale(0.7)"}} type="image" src="../../images/search.png" onClick={(e) => {
                     e.preventDefault();
                     this.filterList();
-                    this.state.success ? <Result/> : null
                     }}>
                 </input>
             </div>
