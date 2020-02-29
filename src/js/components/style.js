@@ -15,12 +15,6 @@ export const fonts = {
         fontSize: "16px",
         fontStyle: ["Helvetica Neue", "Arial", "sans-serif"],
         fontWeight: "regular"
-    },
-    italics: {
-        fontSize: "16px",
-        fontStyle: ["Helvetica Neue", "Arial", "sans-serif"],
-        fontStyle: "italic",
-        fontWeight: "regular"
     }
 }
 
@@ -55,5 +49,7 @@ export const cards = {
         height: "200px",
         boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
         borderRadius: "5px",
+        display: "flex", 
+        alignItems: "center"
     }
 }

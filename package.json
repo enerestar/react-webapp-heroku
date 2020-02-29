@@ -2,7 +2,9 @@
   "name": "reactwebapp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "engines": {
+    "node": "13.8.0"
+  }  "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack --watch",
@@ -29,7 +31,6 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^25.1.0",
     "react-test-renderer": "^16.13.0",
-    "redux-devtools": "^3.5.0",
     "style-loader": "^1.1.3",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
@@ -42,7 +43,6 @@
     "material-design-icons": "^3.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-redux": "^7.2.0",
     "sweetalert2": "^9.8.2"
   }
 }

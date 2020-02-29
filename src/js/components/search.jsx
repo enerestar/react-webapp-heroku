@@ -1,7 +1,8 @@
 import React from 'react';
 import api from '../../keys/api.json';
-import { colors, fonts, searchbar } from './style'
+import { colors, fonts, searchbar, cards } from './style'
 import Swal from 'sweetalert2'
+import Result from './result.jsx';
 
 // search by title ?t=nameofmovie
 // search by ?i=idofmovie?type
@@ -10,7 +11,8 @@ class Search extends React.Component {
         super(props);
         this.state = {
             selected: [],
-            input: ""
+            input: "",
+            success: Boolean
         }
         this.filterList = this.filterList.bind(this);
     }
@@ -25,9 +27,11 @@ class Search extends React.Component {
         })
         .then((data) => {
             if(data.Response != "False") {
-                this.setState({ selected : data })
+                this.setState({ selected : data,
+                success: true })
                 return data;
             } 
+            this.setState({ success: false }) 
             throw new Error(data.Error)
         })
         .catch((error) => {
@@ -48,31 +52,51 @@ class Search extends React.Component {
 
     async filterList() {
         let inputSearch = this.state.input;
-        console.log('Searched: ' + inputSearch )
-        await this.getInfo(inputSearch);
-        console.log("3333333");
+        this.getInfo(inputSearch);
+    }
+
+    getResults() {
         console.log(this.state.selected);
+        return this.state.selected;
     }
 
     render() {
         return (
           <div>
-            <div>
-                <input style={{...searchbar.body, ...fonts.italics}} type="text" placeholder="Label" onChange={(e) => {
+            <div style={{display: "flex", alignItems: "center"}}>
+                <input style={{...searchbar.body, fontStyle: "italic"}} type="text" placeholder="Label" onChange={(e) => {
                     console.log(e)
                     this.setState({input: e.target.value.toLowerCase()})
                 }}></input>
-                <input type="image" src="../../images/search.png" onClick={(e) => {
+                <input style={{marginTop: 4, marginLeft: -40, transform: "scale(0.7)"}} type="image" src="../../images/search.png" onClick={(e) => {
                     e.preventDefault();
                     this.filterList();
+                    this.state.success ? <Result/> : null
                     }}>
                 </input>
             </div>
-            <div></div>
-            {/* <div>Title: {this.state.selected}</div> */}
+                <div>{JSON.stringify(this.state.selected)}</div>
+            <div style={{}}>
+                <div style={{...cards.body}}>
+                <img src={this.state.selected.Poster} style={{height: "200px"}}></img>
+                <div style={{height: "200px"}}>
+                    <div style={{...fonts.header, color:colors.primary, marginLeft: 30 }}>{this.state.selected.Title}</div>
+                    <div style={{...fonts.body, color:colors.lightGrey, marginTop:2, marginLeft: 30 }}>{this.state.selected.Year} </div>
+                    <div style={{...fonts.body, color:colors.secondary, marginTop:40, marginLeft: 30, height: "150px", overflowY: "hidden" }}>
+                        <div>{this.state.selected.Genre}</div>
+                        <div> &nbsp;</div>
+                        <div>{this.state.selected.Actors}</div>
+                        <div> &nbsp;</div>
+                        <div>{this.state.selected.Plot}</div>
+                        <div>{this.state.selected.Language}</div>
+                    </div>
+                </div>
+            </div>
+            </div>
           </div>
         );
       }
 }
+
 
 export default Search
