@@ -27,8 +27,14 @@ class Search extends React.Component {
         })
         .then((data) => {
             if(data.Response != "False") {
-                this.setState({ selected : data,
-                success: true })
+                if (data.Poster != "N/A") {
+                    this.setState({ selected : data,
+                    success: true })
+                } else {
+                    data.Poster = "../images/default.png"
+                    this.setState({ selected : data,
+                        success: true })
+                }
                 return data;
             } 
             this.setState({ success: false }) 
@@ -80,6 +86,7 @@ class Search extends React.Component {
                 <div style={{...cards.body}}>
                 <img src={this.state.selected.Poster} style={{height: "200px"}}></img>
                 <div style={{height: "200px"}}>
+                    {/* <div style={{height: "200px", backgroundColor: "#F0F0F0", transform: "rotate(20deg)"}}></div> */}
                     <div style={{...fonts.header, color:colors.primary, marginLeft: 30 }}>{this.state.selected.Title}</div>
                     <div style={{...fonts.body, color:colors.lightGrey, marginTop:2, marginLeft: 30 }}>{this.state.selected.Year} </div>
                     <div style={{...fonts.body, color:colors.secondary, marginTop:40, marginLeft: 30, height: "150px", overflowY: "hidden" }}>
