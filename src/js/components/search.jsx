@@ -2,6 +2,7 @@ import React from 'react';
 import api from '../../keys/api.json';
 import { colors, fonts, searchbar, cards } from './style'
 import Swal from 'sweetalert2'
+import { Star } from './star'
 
 // search by title ?t=nameofmovie
 // search by ?i=idofmovie?type
@@ -60,9 +61,11 @@ class Search extends React.Component {
         this.getInfo(inputSearch);
     }
 
-    getResults() {
-        console.log(this.state.selected);
-        return this.state.selected;
+    getRatings() {
+        let ratingArr = this.state.selected.Ratings;
+        if (ratingArr != undefined) {
+            return ratingArr[0].Value
+        }
     }
 
     render() {
@@ -79,7 +82,7 @@ class Search extends React.Component {
                     }}>
                 </input>
             </div>
-                <div>{JSON.stringify(this.state.selected)}</div>
+            <div>{JSON.stringify(this.state.selected)}</div>
             <div style={{}}>
                 <div style={{...cards.body}}>
                 <img src={this.state.selected.Poster} style={{height: "200px"}}></img>
@@ -88,12 +91,7 @@ class Search extends React.Component {
                     <div style={{...fonts.header, color:colors.primary, marginLeft: 30, flex: "0 0 auto"}}>{this.state.selected.Title}</div>
                     <div style={{...fonts.body, color:colors.lightGrey, marginTop:2, marginLeft: 30, flex: "0 0 auto"}}>{this.state.selected.Year} </div>
                     <div style={{...fonts.body, color:colors.secondary, overflowY: "scroll", marginTop:30, marginLeft: 30, flex: "1 0 0"}}>
-                        <div>{this.state.selected.Genre}</div>
-                        <div> &nbsp;</div>
-                        <div>{this.state.selected.Actors}</div>
-                        <div> &nbsp;</div>
-                        <div>{this.state.selected.Plot}</div>
-                        <div>{this.state.selected.Language}</div>
+                        <div>{this.getRatings()}</div>
                     </div>
                 </div>
             </div>
