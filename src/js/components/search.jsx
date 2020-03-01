@@ -52,7 +52,7 @@ class Search extends React.Component {
 
     getInfo(inputSearch) {
         const key = JSON.stringify(api.KEY).split('\"').join("");
-        const API_URL = "http://www.omdbapi.com/?t="+ inputSearch + "&apikey=" + key;
+        const API_URL = "https://www.omdbapi.com/?t="+ inputSearch + "&apikey=" + key;
         return this.fetch(API_URL);
     }
 
@@ -76,7 +76,6 @@ class Search extends React.Component {
           <div>
             <div style={{display: "flex", alignItems: "center"}}>
                 <input style={{...searchbar.body, fontStyle: "italic", color:colors.label}} type="text" placeholder="Label" onChange={(e) => {
-                    console.log(e)
                     this.setState({input: e.target.value.toLowerCase()})
                 }}></input>
                 <input style={{marginTop: 4, marginLeft: -40, transform: "scale(0.7)"}} type="image" src="../../images/search.png" onClick={(e) => {
