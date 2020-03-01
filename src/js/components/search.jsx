@@ -1,6 +1,6 @@
 import React from 'react';
 import api from '../../keys/api.json';
-import { colors, fonts, searchbar, cards } from './style'
+import { colors, fonts, searchbar, cards, slant } from './style'
 import Swal from 'sweetalert2'
 import { Star } from './star'
 
@@ -63,9 +63,12 @@ class Search extends React.Component {
 
     getRatings() {
         let ratingArr = this.state.selected.Ratings;
-        if (ratingArr != undefined) {
-            return ratingArr[0].Value
-        }
+        if (ratingArr != undefined ) {
+            let innerArr = ratingArr[0];
+            if (innerArr != undefined) {
+                return innerArr.Value
+            }
+        }   
     }
 
     render() {
@@ -85,16 +88,17 @@ class Search extends React.Component {
             <div>{JSON.stringify(this.state.selected)}</div>
             <div style={{}}>
                 <div style={{...cards.body}}>
-                <img src={this.state.selected.Poster} style={{height: "200px"}}></img>
-                <div style={{padding: 10, display: "flex", flexDirection: "column" }}>
-                    {/* <div style={{height: "200px", backgroundColor: "#F0F0F0", transform: "rotate(20deg)"}}></div> */}
-                    <div style={{...fonts.header, color:colors.primary, marginLeft: 30, flex: "0 0 auto"}}>{this.state.selected.Title}</div>
-                    <div style={{...fonts.body, color:colors.lightGrey, marginTop:2, marginLeft: 30, flex: "0 0 auto"}}>{this.state.selected.Year} </div>
-                    <div style={{...fonts.body, color:colors.secondary, overflowY: "scroll", marginTop:30, marginLeft: 30, flex: "1 0 0"}}>
-                        <div>{this.getRatings()}</div>
+                    <img src={this.state.selected.Poster} style={{height: 200}}></img>
+                    <div style={{backgroundColor: "#FFFFFF", ...slant.body, height: 200, width:50, marginLeft: -15, WebkitTransformOrigin: "100%, 100%", msTransformOrigin: "100%,100%"}}>
                     </div>
+                    <div style={{padding: 10, display: "flex", flexDirection: "column" }}>
+                        <div style={{...fonts.header, color:colors.primary, flex: "0 0 auto"}}>{this.state.selected.Title}</div>
+                        <div style={{...fonts.body, color:colors.lightGrey, marginTop:2, flex: "0 0 auto"}}>{this.state.selected.Year} </div>
+                        <div style={{...fonts.body, color:colors.secondary, overflowY: "scroll", marginTop:30, flex: "1 0 0"}}>
+                            <div>{this.getRatings()}</div>
+                        </div>
+                        </div>
                 </div>
-            </div>
             </div>
           </div>
         );

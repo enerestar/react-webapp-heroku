@@ -54,3 +54,13 @@ export const cards = {
         overflow: "hidden"
     }
 }
+
+export const slant = {
+    body: {
+        // position: "absolute",
+        // borderRight: "40px solid rgba(173,96,223,8",
+        transformOrigin: "100%, 100%",
+        skewX: "172deg",
+        transform: "skewX(172deg)",
+    }
+}
