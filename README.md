@@ -11,5 +11,3 @@ reactwebapp
 
 Run `npm i`
 Run `npm run start` for development
-
-[Blog Part I (webpack)](https://enerestar.com/2020/03/02/webpack-react-webapp-from-scratch-with-deployment-on-heroku-part-i/?preview=true)
