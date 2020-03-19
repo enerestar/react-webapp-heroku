@@ -1,4 +1,4 @@
-# reactwebapp
+# react-webapp-heroku
 
 To run the project, go to https://www.omdbapi.com/apikey.aspx to create your api key.
 
