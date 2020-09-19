@@ -21,9 +21,11 @@ module.exports = {
             template: "./src/index.html",
             filename: "./index.html"
         }),
-        new CopyWebpackPlugin([
-            {from:'./src/images',to:'images'} 
-        ])
+        new CopyWebpackPlugin({
+            patterns: [
+                {from:'./src/images',to:'images'} 
+            ]
+        })
     ],
     output: {
         filename: '[name].bundle.js',
